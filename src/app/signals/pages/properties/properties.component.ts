@@ -26,8 +26,11 @@ public userChangedEffect = effect( () => {
 
 
 ngOnInit(): void {
-  setInterval(() => {
+  let interval =setInterval(() => {
     this.counter.update( current => current + 1 );
+    if(this.counter()>10){
+      clearInterval(interval)
+    }
 
     // if ( this.counter() == 15 )
     //   this.userChangedEffect.destroy();
